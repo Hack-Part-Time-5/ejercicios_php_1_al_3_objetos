@@ -3,29 +3,28 @@
 <?php
 
 class Saludar {
-
-
-    public function saludar($name){
-        echo "Hola " . $name . " que tal estas. \n";
+    
+    public function saludoPublico (){
+        echo "Soy un metodo publico";
     }
 
-    private function saludado($names){
-        echo "Hola " . $names . " como estas hoy.";
+    private function saludoPrivado (){
+        echo "Soy un metodo privado".PHP_EOL;
     }
 
-    public function getSaludado(){
-        return $this->saludado("Marco");
+    public function getPrivateSaludo (){
+        $this->saludoPrivado();
     }
+
 }
 
-// Publica -------------------------------------
-$public = new Saludar();
+// Llamando a una funcion privada --------------------------
+$callPrivateFunction = new Saludar();
 
-$public->saludar("Marco");
+$callPrivateFunction->getPrivateSaludo();
 
+// Llamando a la funcion publica ---------------------------
 
-// Privada -------------------------------------
+$callPublicFunction = new Saludar();
+$callPublicFunction->saludoPublico();
 
-$private = new Saludar();
-
-$private->getSaludado();
